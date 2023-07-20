@@ -1,0 +1,20 @@
+.dashboard {
+    background: #F3F3F9;
+}
+.dashboard-left {
+    width: 250px;
+    height: 100vh;
+    background: #f0f0f0;
+    padding: 15px;
+} 
+.page-head{ 
+    background: #f0f0f0; 
+    padding: 15px 24px;
+}
+.page-head h3{
+    font-size: 32px;
+}
+.dd-bg{
+    
+}
+ 
