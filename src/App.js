@@ -4,6 +4,7 @@ import s3 from './aws-config';
 import './App.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import MainLogo from './images/dd-log-10-years.png'
 
 Chart.register(...registerables);
 
@@ -37,9 +38,9 @@ const FileUploader = ({ onFileUploaded, setLoading }) => {
   };
 
   return (
-    <div>
+    <div className='chooose-file'>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
+      <button className='' onClick={handleUpload}>Upload</button>
     </div>
   );
 };
@@ -226,52 +227,63 @@ const LogChart = () => {
 
   return (
     <>
-      <div className="dashboard">
+    <header className='header'>
+      <div className='logo'>
+        <a href='/'><img src={MainLogo} alt='' /></a>
+      </div>
+      <div className='file-uploader'>
         <FileUploader onFileUploaded={handleFileUploaded} setLoading={setLoading} />
 
         {/* Date Selector */}
         {objectURL && (
-          <div>
+          <div className='date-range-select'>
             <h3>Select Date Range:</h3>
-            <div>
+            <div className='date-start-select'>
               <label>Start Date:</label>
               <DatePicker selected={selectedStartDate} onChange={handleStartDateChange} />
             </div>
-            <div>
+            <div className='date-end-select'>
               <label>End Date:</label>
               <DatePicker selected={selectedEndDate} onChange={handleEndDateChange} />
             </div>
-            <button onClick={handleDateSelection}>Generate Graph</button>
-            <button onClick={handleShowAll}>Show All Logs</button>
+            <button className='' onClick={handleDateSelection}>Generate Graph</button>
+            <button className='' onClick={handleShowAll}>Show All Logs</button>
           </div>
         )}
+      </div>
+    </header>
+    <div className=''>
+      <div className=''>
 
-        {/* Graphs */}
-        {!loading && (
-          <div className="flex">
-            <div className="flex-auto w-full">
-              <div className="flex gap-8 flex-wrap">
-                <div className="flex-none w-full page-head font-semibold text-gray-900">
-                  <h3>HTTP Codes</h3>
-                </div>
-                <div className="flex-auto w-64 ml-3">
-                  <div className="rounded shadow-lg bg-slate-50 p-5 ml-3 height:full">
-                    <canvas ref={barChartRef} />
+      </div>
+      <div className="dashboard"> 
+          {/* Graphs */}
+          {!loading && (
+            <div className="flex">
+              <div className="flex-auto w-full">
+                <div className="flex gap-8 flex-wrap">
+                  <div className="flex-none w-full page-head font-semibold text-gray-900">
+                    <h3>HTTP Codes</h3>
                   </div>
-                </div>
-                <div className="flex-auto w-32 mr-3">
-                  <div className="rounded shadow-lg bg-slate-50 p-5 mr-3 height:full">
-                    <canvas
-                      ref={pieChartRef}
-                      style={{ width: '50%', margin: '0 auto' }}
-                    />
+                  <div className="flex-auto w-64 ml-3">
+                    <div className="rounded shadow-lg bg-slate-50 p-5 ml-3 height:full">
+                      <canvas ref={barChartRef} />
+                    </div>
+                  </div>
+                  <div className="flex-auto w-32 mr-3">
+                    <div className="rounded shadow-lg bg-slate-50 p-5 mr-3 height:full">
+                      <canvas
+                        ref={pieChartRef}
+                        style={{ width: '50%', margin: '0 auto' }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+    </div> 
     </>
   );
 };

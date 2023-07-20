@@ -1,5 +1,6 @@
 .dashboard {
     background: #F3F3F9;
+    margin-top: 98px;
 }
 .dashboard-left {
     width: 250px;
@@ -13,8 +14,78 @@
 }
 .page-head h3{
     font-size: 32px;
+} 
+.date-range-select {
+    display: flex;
+    justify-content: space-between;
 }
-.dd-bg{
-    
+header.header {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px 0px rgb(0 0 0 / 15%);
+    z-index: 3;
 }
- 
+.logo {
+    width: 150px;
+}
+.chooose-file {
+    display: flex;
+    border: 1px solid #c0bfbf;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+.file-uploader {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.date-range-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.chooose-file button {
+    background: #a11d56;
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 25px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.date-range-select h3 {
+    font-weight: 600;
+    font-size: 18px;
+}
+.date-start-select input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+.date-end-select input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 4px;
+}
+.date-range-select button {
+    background: #a11d56;
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 25px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {
+    top: 10px;
+}
